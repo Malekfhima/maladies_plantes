@@ -1,0 +1,39 @@
+{
+  "app": {
+    "title": "Détection de Maladies de Plantes",
+    "subtitle": "Identifier les maladies des plantes avec l'IA"
+  },
+  "home": {
+    "noImage": "Aucune image sélectionnée",
+    "analyzing": "Analyse de l'image...",
+    "newImage": "Nouvelle Image",
+    "takePhoto": "Prendre une Photo",
+    "selectGallery": "Sélectionner dans la Galerie",
+    "howItWorks": "Comment ça marche",
+    "step1": "Prenez une photo ou sélectionnez une image de votre galerie",
+    "step2": "Notre IA analyse l'image pour détecter les maladies des plantes",
+    "step3": "Obtenez des résultats instantanés avec des recommandations de traitement"
+  },
+  "result": {
+    "confidence": "Confiance",
+    "description": "Description",
+    "treatment": "Traitement Recommandé",
+    "disclaimer": "Ceci est une prédiction par IA. Pour un diagnostic précis et un traitement, veuillez consulter un expert agricole ou un pathologiste des plantes."
+  },
+  "errors": {
+    "cameraPermission": "L'autorisation de caméra est nécessaire pour prendre des photos.",
+    "galleryPermission": "L'autorisation de galerie est nécessaire pour sélectionner des photos.",
+    "cameraError": "Échec de l'ouverture de la caméra. Veuillez réessayer.",
+    "galleryError": "Échec de l'ouverture de la galerie. Veuillez réessayer.",
+    "predictionError": "Échec de l'analyse de l'image. Veuillez réessayer.",
+    "noImage": "Aucun fichier image fourni",
+    "noFile": "Aucun fichier sélectionné",
+    "serverError": "Pas de réponse du serveur. Vérifiez votre connexion."
+  },
+  "language": {
+    "title": "Langue",
+    "english": "Anglais",
+    "french": "Français",
+    "german": "Allemand"
+  }
+}

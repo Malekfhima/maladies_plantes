@@ -1,0 +1,39 @@
+{
+  "app": {
+    "title": "Pflanzenkrankheitserkennung",
+    "subtitle": "Pflanzenkrankheiten mit KI identifizieren"
+  },
+  "home": {
+    "noImage": "Kein Bild ausgewählt",
+    "analyzing": "Bild wird analysiert...",
+    "newImage": "Neues Bild",
+    "takePhoto": "Foto aufnehmen",
+    "selectGallery": "Aus Galerie auswählen",
+    "howItWorks": "So funktioniert es",
+    "step1": "Machen Sie ein Foto oder wählen Sie ein Bild aus Ihrer Galerie",
+    "step2": "Unsere KI analysiert das Bild auf Pflanzenkrankheiten",
+    "step3": "Erhalten Sie sofortige Ergebnisse mit Behandlungsempfehlungen"
+  },
+  "result": {
+    "confidence": "Konfidenz",
+    "description": "Beschreibung",
+    "treatment": "Empfohlene Behandlung",
+    "disclaimer": "Dies ist eine KI-gestützte Vorhersage. Für eine genaue Diagnose und Behandlung konsultieren Sie bitte einen landwirtschaftlichen Experten oder Pflanzenpathologen."
+  },
+  "errors": {
+    "cameraPermission": "Kameraberechtigung ist erforderlich, um Fotos zu machen.",
+    "galleryPermission": "Galerieberechtigung ist erforderlich, um Fotos auszuwählen.",
+    "cameraError": "Kamera konnte nicht geöffnet werden. Bitte versuchen Sie es erneut.",
+    "galleryError": "Galerie konnte nicht geöffnet werden. Bitte versuchen Sie es erneut.",
+    "predictionError": "Bildanalyse fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "noImage": "Keine Bilddatei bereitgestellt",
+    "noFile": "Keine Datei ausgewählt",
+    "serverError": "Keine Antwort vom Server. Überprüfen Sie Ihre Verbindung."
+  },
+  "language": {
+    "title": "Sprache",
+    "english": "Englisch",
+    "french": "Französisch",
+    "german": "Deutsch"
+  }
+}

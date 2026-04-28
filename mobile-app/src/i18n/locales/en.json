@@ -1,0 +1,39 @@
+{
+  "app": {
+    "title": "Plant Disease Detection",
+    "subtitle": "Identify plant diseases using AI"
+  },
+  "home": {
+    "noImage": "No image selected",
+    "analyzing": "Analyzing image...",
+    "newImage": "New Image",
+    "takePhoto": "Take Photo",
+    "selectGallery": "Select from Gallery",
+    "howItWorks": "How it works",
+    "step1": "Take a photo or select an image from your gallery",
+    "step2": "Our AI analyzes the image for plant diseases",
+    "step3": "Get instant results with treatment recommendations"
+  },
+  "result": {
+    "confidence": "Confidence",
+    "description": "Description",
+    "treatment": "Recommended Treatment",
+    "disclaimer": "This is an AI-powered prediction. For accurate diagnosis and treatment, please consult with an agricultural expert or plant pathologist."
+  },
+  "errors": {
+    "cameraPermission": "Camera permission is needed to take photos.",
+    "galleryPermission": "Gallery permission is needed to select photos.",
+    "cameraError": "Failed to open camera. Please try again.",
+    "galleryError": "Failed to open gallery. Please try again.",
+    "predictionError": "Failed to analyze image. Please try again.",
+    "noImage": "No image file provided",
+    "noFile": "No file selected",
+    "serverError": "No response from server. Check your connection."
+  },
+  "language": {
+    "title": "Language",
+    "english": "English",
+    "french": "Français",
+    "german": "Deutsch"
+  }
+}
