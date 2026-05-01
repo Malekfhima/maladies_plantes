@@ -15,32 +15,62 @@ A complete smart agriculture mobile application that detects plant diseases usin
 
 ```
 plant-disease-detection/
-├── ml-model/              # Machine Learning Model
-│   ├── train_model.py     # CNN training script
-│   ├── inference.py       # Model inference script
-│   ├── requirements.txt  # ML dependencies
-│   ├── dataset/           # Training dataset (PlantVillage)
-│   └── models/            # Saved models (created after training)
-│       ├── plant_disease_model.h5
-│       ├── plant_disease_model.tflite
-│       └── class_labels.json
-│
-├── backend/               # Flask Backend API
-│   ├── app.py            # Flask application with REST API
-│   └── requirements.txt  # Backend dependencies
-│
-└── mobile-app/           # React Native Mobile App
-    ├── App.js            # Main entry point
-    ├── app.json          # Expo configuration
-    ├── package.json      # Node dependencies
+├── .env.example          # Environment variables template
+├── docker-compose.yml    # Docker orchestration
+├── README.md            # This file
+├── QUICKSTART.md        # Quick start guide
+├── docs/                # Documentation
+│   ├── api.md          # API documentation
+│   ├── deployment.md   # Deployment guide
+│   └── architecture.md # Architecture documentation
+├── scripts/            # Utility scripts
+│   ├── setup.sh       # Project setup script
+│   └── train.sh       # Model training script
+├── backend/            # Flask Backend API
+│   ├── config/
+│   │   └── settings.py # Configuration management
+│   ├── app/
+│   │   ├── app.py     # Flask application factory
+│   │   ├── routes/    # API endpoints
+│   │   │   ├── health.py
+│   │   │   └── predict.py
+│   │   └── services/  # Business logic
+│   │       ├── model_loader.py
+│   │       ├── image_processor.py
+│   │       └── predictor.py
+│   ├── tests/         # Unit tests
+│   ├── run.py         # Application entry point
+│   ├── Dockerfile     # Docker configuration
+│   └── requirements.txt
+├── ml-model/          # Machine Learning Model
+│   ├── src/
+│   │   ├── train.py           # CNN training script
+│   │   ├── inference.py       # Model inference script
+│   │   ├── model_generator.py # Model architecture
+│   │   ├── config.py          # Configuration settings
+│   │   └── utils.py           # Utility functions
+│   ├── data/
+│   │   ├── dataset/           # Training dataset
+│   │   └── processed/        # Processed data
+│   ├── models/                # Saved models
+│   │   ├── plant_disease_model.h5
+│   │   └── class_labels.json
+│   ├── notebooks/             # Jupyter notebooks
+│   └── requirements.txt
+└── mobile-app/        # React Native Mobile App
     ├── src/
-    │   ├── api/
-    │   │   └── api.js    # API service for backend communication
-    │   ├── screens/
-    │   │   └── HomeScreen.js  # Main screen with camera/gallery
-    │   └── components/
-    │       └── ResultCard.js  # Result display component
-    └── assets/           # App icons and splash screens
+    │   ├── api/        # API communication
+    │   ├── components/ # Reusable components
+    │   ├── config/     # App configuration
+    │   ├── constants/  # App constants
+    │   ├── i18n/       # Internationalization
+    │   ├── navigation/ # Navigation configuration
+    │   ├── screens/    # Screen components
+    │   └── utils/      # Utility functions
+    ├── assets/         # Images, fonts, etc.
+    ├── App.js          # Main entry point
+    ├── app.json        # Expo configuration
+    └── package.json
 ```
 
 ## 🧠 Machine Learning Model
@@ -146,16 +176,28 @@ Get all available disease classes.
 
 ### Prerequisites
 
-- Python 3.8+
+- **Python 3.10-3.12** (TensorFlow does not support Python 3.14 yet)
 - Node.js 16+
 - npm or yarn
 - Expo CLI
 - Android Studio (for Android development)
 - Xcode (for iOS development, macOS only)
 
-### 1. ML Model Setup
+**Important:** Use Python 3.10, 3.11, or 3.12 for TensorFlow compatibility. Python 3.14 is not yet supported by TensorFlow.
 
-#### Install Dependencies
+### 1. Quick Setup
+
+Run the setup script to configure all components:
+
+```bash
+./scripts/setup.sh
+```
+
+Or manually setup each component:
+
+#### ML Model Setup
+
+Install dependencies:
 
 ```bash
 cd ml-model
@@ -195,7 +237,7 @@ This will:
 #### Test the Model
 
 ```bash
-python inference.py
+python src/inference.py
 ```
 
 ### 2. Backend API Setup
@@ -207,18 +249,20 @@ cd backend
 pip install -r requirements.txt
 ```
 
-#### Update API Configuration
+#### Configure Environment
 
-Edit `backend/app.py` and update the model paths if needed:
-```python
-MODEL_PATH = '../ml-model/models/plant_disease_model.h5'
-CLASS_LABELS_PATH = '../ml-model/models/class_labels.json'
+Copy the environment template and configure:
+
+```bash
+cp ../.env.example .env
 ```
+
+Edit `backend/config/settings.py` or use environment variables for configuration.
 
 #### Run the Backend
 
 ```bash
-python app.py
+python run.py
 ```
 
 The API will start on `http://0.0.0.0:5000`
@@ -240,11 +284,14 @@ npm install
 
 #### Update API URL
 
-Edit `mobile-app/src/api/api.js` and update the backend URL:
+Edit `mobile-app/src/config/index.js` and update the backend URL:
 
 ```javascript
 // For local testing, use your computer's IP address
-const API_BASE_URL = 'http://YOUR_COMPUTER_IP:5000';
+export const API_CONFIG = {
+  BASE_URL: 'http://YOUR_COMPUTER_IP:5000',
+  TIMEOUT: 30000,
+};
 ```
 
 To find your computer's IP:
@@ -459,6 +506,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 For questions or support, please open an issue on GitHub.
 
+## 🙏 Acknowledgments
+
+- PlantVillage dataset for the training images
+- TensorFlow/Keras for the deep learning framework
+- React Native/Expo for the mobile framework
+- Flask for the backend API
 ## 🙏 Acknowledgments
 
 - PlantVillage dataset for the training images

@@ -4,15 +4,11 @@
  */
 
 import axios from 'axios';
-
-// Update this to your backend server IP address
-// For local testing, use your computer's IP address
-// For production, use your deployed server URL
-const API_BASE_URL = 'http://192.168.1.161:5000';
+import { API_CONFIG } from '../config';
 
 const api = axios.create({
-  baseURL: API_BASE_URL,
-  timeout: 30000, // 30 seconds timeout
+  baseURL: API_CONFIG.BASE_URL,
+  timeout: API_CONFIG.TIMEOUT,
   headers: {
     'Content-Type': 'multipart/form-data',
   },

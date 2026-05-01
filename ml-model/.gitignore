@@ -11,16 +11,22 @@ build/
 dist/
 *.egg-info/
 .pytest_cache/
+.coverage
+htmlcov/
 
 # Dataset (large files)
-dataset/
+data/dataset/
+data/processed/
 *.zip
 *.tar.gz
+*.rar
 
 # Model files (optional - can be large)
-models/*.h5
-models/*.tflite
-models/*.hdf5
+# Comment out these lines if you want to track model files
+# models/*.h5
+# models/*.tflite
+# models/*.hdf5
+# models/*.pb
 # Keep class_labels.json as it's small
 !models/class_labels.json
 
@@ -34,6 +40,7 @@ models/*.hdf5
 *.swp
 *.swo
 *~
+*.sublime-*
 
 # OS
 .DS_Store
@@ -42,3 +49,12 @@ Thumbs.db
 # Environment variables
 .env
 .env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Checkpoints
+checkpoints/
+*.ckpt

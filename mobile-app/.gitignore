@@ -35,6 +35,8 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+package-lock.json
+yarn.lock
 
 # fastlane
 ios/fastlane/report.xml
@@ -64,3 +66,14 @@ web-build/
 # Environment variables
 .env
 .env.local
+.env.*.local
+
+# Cache
+.cache/
+*.cache
+
+# Misc
+*.bak
+*.tmp
+*.swp
+*~

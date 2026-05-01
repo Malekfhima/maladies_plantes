@@ -1,0 +1,192 @@
+{
+  "0": {
+    "name": "Pepper_bell_Bacterial_spot",
+    "description": "Bacterial spot on bell pepper leaves",
+    "treatment": "Apply copper-based fungicides. Remove infected plants."
+  },
+  "1": {
+    "name": "Pepper_bell_healthy",
+    "description": "Healthy bell pepper plant",
+    "treatment": "Continue regular care."
+  },
+  "2": {
+    "name": "Potato_Early_blight",
+    "description": "Dark brown spots with concentric rings on potato leaves",
+    "treatment": "Apply chlorothalonil or mancozeb. Rotate crops."
+  },
+  "3": {
+    "name": "Potato_Late_blight",
+    "description": "Water-soaked lesions expanding rapidly on potato",
+    "treatment": "Apply systemic fungicides immediately."
+  },
+  "4": {
+    "name": "Potato_healthy",
+    "description": "Healthy potato plant",
+    "treatment": "Continue regular care."
+  },
+  "5": {
+    "name": "Tomato_Bacterial_spot",
+    "description": "Small dark spots on tomato leaves and fruit",
+    "treatment": "Apply copper hydroxide. Use disease-free seeds."
+  },
+  "6": {
+    "name": "Tomato_Early_blight",
+    "description": "Target-like spots on older tomato leaves",
+    "treatment": "Apply chlorothalonil. Remove infected leaves."
+  },
+  "7": {
+    "name": "Tomato_Late_blight",
+    "description": "Greasy dark lesions on tomato",
+    "treatment": "Apply systemic fungicide. Remove infected plants."
+  },
+  "8": {
+    "name": "Tomato_Leaf_Mold",
+    "description": "Yellow spots with olive-green mold on tomato",
+    "treatment": "Improve ventilation. Reduce humidity."
+  },
+  "9": {
+    "name": "Tomato_Septoria_leaf_spot",
+    "description": "Circular spots with dark borders on tomato",
+    "treatment": "Apply copper fungicides. Remove lower leaves."
+  },
+  "10": {
+    "name": "Tomato_Spider_mites",
+    "description": "Stippling and yellowing on tomato leaves",
+    "treatment": "Apply insecticidal soap or neem oil."
+  },
+  "11": {
+    "name": "Tomato_Target_Spot",
+    "description": "Lesions with concentric rings on tomato",
+    "treatment": "Apply fungicides. Improve air circulation."
+  },
+  "12": {
+    "name": "Tomato_Yellow_Leaf_Curl_Virus",
+    "description": "Yellowing and curling of tomato leaves",
+    "treatment": "Control whitefly vectors. Use resistant varieties."
+  },
+  "13": {
+    "name": "Tomato_Mosaic_Virus",
+    "description": "Mottled light and dark green patterns on tomato",
+    "treatment": "Remove infected plants. Disinfect tools."
+  },
+  "14": {
+    "name": "Tomato_healthy",
+    "description": "Healthy tomato plant",
+    "treatment": "Continue regular care."
+  },
+  "15": {
+    "name": "Apple_scab",
+    "description": "Olive-green to brown spots on apple leaves",
+    "treatment": "Apply fungicides in spring. Rake fallen leaves."
+  },
+  "16": {
+    "name": "Apple_Black_rot",
+    "description": "Brown lesions on apple leaves and fruit",
+    "treatment": "Prune dead wood. Apply fungicides during bloom."
+  },
+  "17": {
+    "name": "Apple_Cedar_apple_rust",
+    "description": "Orange-yellow spots on apple leaves",
+    "treatment": "Remove nearby cedar trees. Apply fungicides."
+  },
+  "18": {
+    "name": "Apple_healthy",
+    "description": "Healthy apple tree",
+    "treatment": "Continue regular care."
+  },
+  "19": {
+    "name": "Blueberry_healthy",
+    "description": "Healthy blueberry plant",
+    "treatment": "Continue regular care."
+  },
+  "20": {
+    "name": "Cherry_Powdery_mildew",
+    "description": "White powdery growth on cherry leaves",
+    "treatment": "Apply sulfur fungicides. Improve air circulation."
+  },
+  "21": {
+    "name": "Cherry_healthy",
+    "description": "Healthy cherry tree",
+    "treatment": "Continue regular care."
+  },
+  "22": {
+    "name": "Corn_Cercospora_leaf_spot",
+    "description": "Rectangular tan to gray lesions on corn",
+    "treatment": "Apply foliar fungicides. Rotate crops."
+  },
+  "23": {
+    "name": "Corn_Common_rust",
+    "description": "Reddish-brown pustules on corn leaves",
+    "treatment": "Apply fungicides if severe. Plant resistant varieties."
+  },
+  "24": {
+    "name": "Corn_Northern_Leaf_Blight",
+    "description": "Long elliptical gray-green lesions on corn",
+    "treatment": "Apply foliar fungicides. Use resistant hybrids."
+  },
+  "25": {
+    "name": "Corn_healthy",
+    "description": "Healthy corn plant",
+    "treatment": "Continue regular care."
+  },
+  "26": {
+    "name": "Grape_Black_rot",
+    "description": "Reddish-brown spots on grape leaves and fruit",
+    "treatment": "Apply fungicides before and after bloom."
+  },
+  "27": {
+    "name": "Grape_Esca",
+    "description": "Tiger-stripe patterns on grape leaves",
+    "treatment": "Prune affected wood. Remove infected vines."
+  },
+  "28": {
+    "name": "Grape_Leaf_blight",
+    "description": "Angular brown spots on grape leaves",
+    "treatment": "Apply fungicides. Improve canopy management."
+  },
+  "29": {
+    "name": "Grape_healthy",
+    "description": "Healthy grape vine",
+    "treatment": "Continue regular care."
+  },
+  "30": {
+    "name": "Orange_Haunglongbing",
+    "description": "Citrus greening causing blotchy mottling",
+    "treatment": "Control Asian citrus psyllid. Remove infected trees."
+  },
+  "31": {
+    "name": "Peach_Bacterial_spot",
+    "description": "Angular water-soaked spots on peach",
+    "treatment": "Apply copper-based products. Avoid overhead irrigation."
+  },
+  "32": {
+    "name": "Peach_healthy",
+    "description": "Healthy peach tree",
+    "treatment": "Continue regular care."
+  },
+  "33": {
+    "name": "Raspberry_healthy",
+    "description": "Healthy raspberry plant",
+    "treatment": "Continue regular care."
+  },
+  "34": {
+    "name": "Soybean_healthy",
+    "description": "Healthy soybean plant",
+    "treatment": "Continue regular care."
+  },
+  "35": {
+    "name": "Squash_Powdery_mildew",
+    "description": "White powdery spots on squash leaves",
+    "treatment": "Apply sulfur or neem oil. Improve air circulation."
+  },
+  "36": {
+    "name": "Strawberry_Leaf_scorch",
+    "description": "Red-brown spots on strawberry leaves",
+    "treatment": "Apply fungicides. Remove infected leaves."
+  },
+  "37": {
+    "name": "Strawberry_healthy",
+    "description": "Healthy strawberry plant",
+    "treatment": "Continue regular care."
+  }
+}
