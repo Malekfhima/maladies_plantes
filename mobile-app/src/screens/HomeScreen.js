@@ -3,7 +3,7 @@
  * Main screen of the app with options to capture or select image
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -13,6 +13,8 @@ import {
   ScrollView,
   ActivityIndicator,
   Alert,
+  Animated,
+  StatusBar,
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -20,6 +22,11 @@ import { useTranslation } from 'react-i18next';
 import { predictDisease } from '../api/api';
 import ResultCard from '../components/ResultCard';
 import LanguageSelector from '../components/LanguageSelector';
+import { LinearGradient } from 'expo-linear-gradient';
+import { checkNetworkConnection } from '../utils/network';
+import { compressImage } from '../utils/imageUtils';
+import { saveScanToHistory, getScanHistory } from '../utils/storage';
+import theme from '../constants/theme';
 
 const HomeScreen = () => {
   const { t } = useTranslation();
@@ -27,40 +34,55 @@ const HomeScreen = () => {
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [history, setHistory] = useState([]);
+  
+  const currentTheme = isDarkMode ? theme.COLORS.dark : theme.COLORS.light;
+  
+  // Animation values
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const slideAnim = useRef(new Animated.Value(50)).current;
 
-  /**
-   * Request camera permissions
-   */
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 800,
+        useNativeDriver: true,
+      }),
+      Animated.timing(slideAnim, {
+        toValue: 0,
+        duration: 800,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    loadHistory();
+  }, []);
+
+  const loadHistory = async () => {
+    const scanHistory = await getScanHistory();
+    setHistory(scanHistory);
+  };
+
   const requestCameraPermission = async () => {
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
     if (status !== 'granted') {
-      Alert.alert(
-        t('errors.cameraPermission'),
-        ''
-      );
+      Alert.alert(t('errors.cameraPermission'), '');
       return false;
     }
     return true;
   };
 
-  /**
-   * Request gallery permissions
-   */
   const requestGalleryPermission = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status !== 'granted') {
-      Alert.alert(
-        t('errors.galleryPermission'),
-        ''
-      );
+      Alert.alert(t('errors.galleryPermission'), '');
       return false;
     }
     return true;
   };
 
-  /**
-   * Open camera to capture photo
-   */
   const openCamera = async () => {
     try {
       const hasPermission = await requestCameraPermission();
@@ -77,7 +99,6 @@ const HomeScreen = () => {
         setImageUri(result.assets[0].uri);
         setPrediction(null);
         setError(null);
-        // Automatically predict after capturing
         await analyzeImage(result.assets[0].uri);
       }
     } catch (err) {
@@ -86,9 +107,6 @@ const HomeScreen = () => {
     }
   };
 
-  /**
-   * Open gallery to select photo
-   */
   const openGallery = async () => {
     try {
       const hasPermission = await requestGalleryPermission();
@@ -105,7 +123,6 @@ const HomeScreen = () => {
         setImageUri(result.assets[0].uri);
         setPrediction(null);
         setError(null);
-        // Automatically predict after selecting
         await analyzeImage(result.assets[0].uri);
       }
     } catch (err) {
@@ -114,17 +131,23 @@ const HomeScreen = () => {
     }
   };
 
-  /**
-   * Analyze image using backend API
-   */
   const analyzeImage = async (uri) => {
     setLoading(true);
     setError(null);
     setPrediction(null);
 
     try {
-      const result = await predictDisease(uri);
+      const isConnected = await checkNetworkConnection();
+      if (!isConnected) {
+        throw new Error(t('errors.noConnection'));
+      }
+
+      const compressedUri = await compressImage(uri, 0.7, 1024);
+      const result = await predictDisease(compressedUri);
+      
       setPrediction(result);
+      await saveScanToHistory({ imageUri: uri, prediction: result });
+      await loadHistory();
     } catch (err) {
       setError(err.message || t('errors.predictionError'));
       Alert.alert('Error', err.message || t('errors.predictionError'));
@@ -133,9 +156,6 @@ const HomeScreen = () => {
     }
   };
 
-  /**
-   * Reset the app state
-   */
   const resetState = () => {
     setImageUri(null);
     setPrediction(null);
@@ -143,267 +163,317 @@ const HomeScreen = () => {
     setLoading(false);
   };
 
+  const styles = getStyles(currentTheme, isDarkMode);
+
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      {/* Language Selector */}
-      <LanguageSelector />
-
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.title}>{t('app.title')}</Text>
-        <Text style={styles.subtitle}>
-          {t('app.subtitle')}
-        </Text>
-      </View>
-
-      {/* Image Preview */}
-      {imageUri ? (
-        <View style={styles.imagePreviewContainer}>
-          <Image source={{ uri: imageUri }} style={styles.previewImage} />
-          <TouchableOpacity style={styles.resetButton} onPress={resetState}>
-            <Text style={styles.resetButtonText}>{t('home.newImage')}</Text>
-          </TouchableOpacity>
-        </View>
-      ) : (
-        <View style={styles.placeholderContainer}>
-          <MaterialIcons name="image-not-supported" size={64} color="#A0A0A0" />
-          <Text style={styles.placeholderText}>
-            {t('home.noImage')}
-          </Text>
-        </View>
-      )}
-
-      {/* Loading Indicator */}
-      {loading && (
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#4CAF50" />
-          <Text style={styles.loadingText}>{t('home.analyzing')}</Text>
-        </View>
-      )}
-
-      {/* Error Message */}
-      {error && !loading && (
-        <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>{error}</Text>
-        </View>
-      )}
-
-      {/* Prediction Result */}
-      {prediction && !loading && (
-        <ResultCard prediction={prediction} />
-      )}
-
-      {/* Action Buttons */}
-      {!loading && (
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={[styles.button, styles.cameraButton]}
-            onPress={openCamera}
-          >
-            <MaterialIcons name="camera-alt" size={24} color="#FFFFFF" />
-            <Text style={styles.buttonText}>{t('home.takePhoto')}</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[styles.button, styles.galleryButton]}
-            onPress={openGallery}
-          >
-            <MaterialIcons name="photo-library" size={24} color="#FFFFFF" />
-            <Text style={styles.buttonText}>{t('home.selectGallery')}</Text>
-          </TouchableOpacity>
-        </View>
-      )}
-
-      {/* Info Section */}
-      <View style={styles.infoContainer}>
-        <Text style={styles.infoTitle}>{t('home.howItWorks')}</Text>
-        <View style={styles.stepContainer}>
-          <View style={styles.stepIconContainer}>
-            <MaterialIcons name="camera-alt" size={24} color="#4CAF50" />
+    <View style={styles.container}>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer} showsVerticalScrollIndicator={false}>
+        
+        {/* Header with gradient */}
+        <LinearGradient
+          colors={[currentTheme.primary, currentTheme.primaryDark]}
+          style={styles.headerGradient}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+        >
+          <View style={styles.topBar}>
+            <LanguageSelector isDarkMode={isDarkMode} currentTheme={currentTheme} />
+            <TouchableOpacity style={styles.darkModeToggle} onPress={() => setIsDarkMode(!isDarkMode)}>
+              <MaterialIcons name={isDarkMode ? 'light-mode' : 'dark-mode'} size={24} color="#FFFFFF" />
+            </TouchableOpacity>
           </View>
-          <Text style={styles.infoText}>
-            {t('home.step1')}
-          </Text>
+
+          <Animated.View style={[styles.header, { opacity: fadeAnim }]}>
+            <Text style={styles.title}>{t('app.title')}</Text>
+            <Text style={styles.subtitle}>{t('app.subtitle')}</Text>
+          </Animated.View>
+        </LinearGradient>
+
+        <View style={styles.mainContent}>
+          {/* Image Preview */}
+          {imageUri ? (
+            <View style={styles.imagePreviewContainer}>
+              <Image source={{ uri: imageUri }} style={styles.previewImage} />
+              <TouchableOpacity style={styles.resetButton} onPress={resetState}>
+                <MaterialIcons name="refresh" size={20} color={currentTheme.primary} style={{marginRight: 6}} />
+                <Text style={styles.resetButtonText}>{t('home.newImage')}</Text>
+              </TouchableOpacity>
+            </View>
+          ) : (
+            <TouchableOpacity style={styles.placeholderContainer} onPress={openGallery} activeOpacity={0.8}>
+              <View style={styles.placeholderIconWrapper}>
+                <MaterialIcons name="add-photo-alternate" size={48} color={currentTheme.primary} />
+              </View>
+              <Text style={styles.placeholderText}>{t('home.noImage')}</Text>
+              <Text style={styles.placeholderSubtext}>Tap to browse gallery</Text>
+            </TouchableOpacity>
+          )}
+
+          {/* Loading Indicator */}
+          {loading && (
+            <View style={styles.loadingContainer}>
+              <ActivityIndicator size="large" color={currentTheme.primary} />
+              <Text style={styles.loadingText}>{t('home.analyzing')}</Text>
+            </View>
+          )}
+
+          {/* Error Message */}
+          {error && !loading && (
+            <View style={styles.errorContainer}>
+              <MaterialIcons name="error-outline" size={24} color={currentTheme.error} style={{marginRight: 10}}/>
+              <Text style={styles.errorText}>{error}</Text>
+            </View>
+          )}
+
+          {/* Prediction Result */}
+          {prediction && !loading && (
+            <ResultCard prediction={prediction} currentTheme={currentTheme} isDarkMode={isDarkMode} />
+          )}
+
+          {/* Action Buttons */}
+          {!loading && (
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity style={[styles.button, styles.cameraButton]} onPress={openCamera} activeOpacity={0.8}>
+                <MaterialIcons name="photo-camera" size={24} color="#FFFFFF" />
+                <Text style={styles.buttonText}>{t('home.takePhoto')}</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={[styles.button, styles.galleryButton]} onPress={openGallery} activeOpacity={0.8}>
+                <MaterialIcons name="collections" size={24} color="#FFFFFF" />
+                <Text style={styles.buttonText}>{t('home.selectGallery')}</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+
+          {/* Info Section */}
+          {!imageUri && !loading && (
+            <View style={styles.infoContainer}>
+              <Text style={styles.infoTitle}>{t('home.howItWorks')}</Text>
+              
+              <View style={styles.stepContainer}>
+                <View style={[styles.stepIconContainer, {backgroundColor: currentTheme.primary + '20'}]}>
+                  <MaterialIcons name="camera-alt" size={22} color={currentTheme.primary} />
+                </View>
+                <Text style={styles.infoText}>{t('home.step1')}</Text>
+              </View>
+              
+              <View style={styles.stepContainer}>
+                <View style={[styles.stepIconContainer, {backgroundColor: currentTheme.secondary + '20'}]}>
+                  <MaterialIcons name="psychology" size={22} color={currentTheme.secondary} />
+                </View>
+                <Text style={styles.infoText}>{t('home.step2')}</Text>
+              </View>
+              
+              <View style={styles.stepContainer}>
+                <View style={[styles.stepIconContainer, {backgroundColor: currentTheme.warning + '20'}]}>
+                  <MaterialIcons name="assignment-turned-in" size={22} color={currentTheme.warning} />
+                </View>
+                <Text style={styles.infoText}>{t('home.step3')}</Text>
+              </View>
+            </View>
+          )}
         </View>
-        <View style={styles.stepContainer}>
-          <View style={styles.stepIconContainer}>
-            <MaterialIcons name="psychology" size={24} color="#2196F3" />
-          </View>
-          <Text style={styles.infoText}>
-            {t('home.step2')}
-          </Text>
-        </View>
-        <View style={styles.stepContainer}>
-          <View style={styles.stepIconContainer}>
-            <MaterialIcons name="assignment-turned-in" size={24} color="#FF9800" />
-          </View>
-          <Text style={styles.infoText}>
-            {t('home.step3')}
-          </Text>
-        </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
-const styles = StyleSheet.create({
+const getStyles = (currentTheme, isDarkMode) => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: currentTheme.background,
+  },
+  scrollView: {
+    flex: 1,
   },
   contentContainer: {
-    padding: 20,
     paddingBottom: 40,
   },
-  header: {
+  headerGradient: {
+    paddingTop: 60,
+    paddingBottom: 40,
+    paddingHorizontal: 24,
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
+    elevation: 8,
+    shadowColor: currentTheme.primaryDark,
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.3,
+    shadowRadius: 20,
+  },
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 24,
   },
+  darkModeToggle: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  header: {
+    alignItems: 'center',
+  },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#2E7D32',
+    ...theme.FONTS.h1,
+    color: '#FFFFFF',
     marginBottom: 8,
     textAlign: 'center',
   },
   subtitle: {
-    fontSize: 16,
-    color: '#757575',
+    ...theme.FONTS.body2,
+    color: 'rgba(255, 255, 255, 0.9)',
     textAlign: 'center',
   },
+  mainContent: {
+    paddingHorizontal: 24,
+    marginTop: -20,
+  },
   imagePreviewContainer: {
-    marginBottom: 20,
+    marginBottom: 24,
     alignItems: 'center',
+    backgroundColor: currentTheme.cardBackground,
+    borderRadius: theme.SIZES.radiusLg,
+    padding: 12,
+    ...theme.SHADOWS[isDarkMode ? 'dark' : 'medium'],
   },
   previewImage: {
     width: '100%',
-    height: 300,
-    borderRadius: 12,
+    height: 320,
+    borderRadius: theme.SIZES.radius,
     resizeMode: 'cover',
   },
   resetButton: {
-    marginTop: 10,
-    paddingHorizontal: 20,
-    paddingVertical: 8,
-    backgroundColor: '#757575',
-    borderRadius: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 16,
+    marginBottom: 8,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    backgroundColor: currentTheme.primary + '15',
+    borderRadius: 24,
   },
   resetButtonText: {
-    color: '#FFFFFF',
-    fontSize: 14,
-    fontWeight: '600',
+    color: currentTheme.primary,
+    ...theme.FONTS.h4,
   },
   placeholderContainer: {
     width: '100%',
-    height: 300,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 16,
+    height: 280,
+    backgroundColor: currentTheme.cardBackground,
+    borderRadius: theme.SIZES.radiusLg,
     borderWidth: 2,
-    borderColor: '#E0E0E0',
+    borderColor: currentTheme.primary + '40',
     borderStyle: 'dashed',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
+    marginBottom: 24,
+    ...theme.SHADOWS[isDarkMode ? 'dark' : 'light'],
+  },
+  placeholderIconWrapper: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: currentTheme.primary + '15',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 16,
   },
   placeholderText: {
-    marginTop: 16,
-    fontSize: 16,
-    color: '#9E9E9E',
-    fontWeight: '500',
+    ...theme.FONTS.h3,
+    color: currentTheme.text,
+  },
+  placeholderSubtext: {
+    ...theme.FONTS.body3,
+    color: currentTheme.textMuted,
+    marginTop: 8,
   },
   loadingContainer: {
     alignItems: 'center',
-    marginVertical: 20,
+    marginVertical: 32,
+    backgroundColor: currentTheme.cardBackground,
+    padding: 32,
+    borderRadius: theme.SIZES.radiusLg,
+    ...theme.SHADOWS[isDarkMode ? 'dark' : 'light'],
   },
   loadingText: {
-    marginTop: 12,
-    fontSize: 16,
-    color: '#666666',
+    marginTop: 16,
+    ...theme.FONTS.body1,
+    color: currentTheme.textSecondary,
   },
   errorContainer: {
-    backgroundColor: '#FFEBEE',
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: currentTheme.errorBackground,
     padding: 16,
-    borderRadius: 8,
-    marginBottom: 20,
+    borderRadius: theme.SIZES.radius,
+    marginBottom: 24,
     borderLeftWidth: 4,
-    borderLeftColor: '#F44336',
+    borderLeftColor: currentTheme.error,
   },
   errorText: {
-    color: '#D32F2F',
-    fontSize: 14,
+    color: currentTheme.error,
+    ...theme.FONTS.body3,
+    flex: 1,
   },
   buttonContainer: {
-    marginTop: 20,
-    gap: 12,
+    marginTop: 8,
+    gap: 16,
   },
   button: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 18,
-    borderRadius: 16,
+    paddingVertical: 16,
+    borderRadius: theme.SIZES.radius,
     gap: 12,
-    elevation: 4,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.15,
-    shadowRadius: 8,
+    ...theme.SHADOWS[isDarkMode ? 'dark' : 'medium'],
   },
   cameraButton: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: currentTheme.primary,
   },
   galleryButton: {
-    backgroundColor: '#2196F3',
+    backgroundColor: currentTheme.secondary,
   },
   buttonText: {
     color: '#FFFFFF',
-    fontSize: 18,
-    fontWeight: '600',
+    ...theme.FONTS.h4,
   },
   infoContainer: {
-    marginTop: 40,
+    marginTop: 32,
     padding: 24,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
+    backgroundColor: currentTheme.cardBackground,
+    borderRadius: theme.SIZES.radiusLg,
+    ...theme.SHADOWS[isDarkMode ? 'dark' : 'light'],
   },
   infoTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#2E7D32',
-    marginBottom: 16,
-    textAlign: 'center',
+    ...theme.FONTS.h3,
+    color: currentTheme.text,
+    marginBottom: 20,
   },
   infoText: {
-    fontSize: 15,
-    color: '#424242',
-    marginBottom: 12,
-    lineHeight: 22,
-    paddingLeft: 8,
+    ...theme.FONTS.body2,
+    color: currentTheme.textSecondary,
+    lineHeight: 24,
     flex: 1,
   },
   stepContainer: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
-    marginBottom: 16,
+    alignItems: 'center',
+    marginBottom: 20,
   },
   stepIconContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: '#F5F5F5',
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 12,
+    marginRight: 16,
   },
 });
 

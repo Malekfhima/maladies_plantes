@@ -1,192 +1,648 @@
 {
   "0": {
-    "name": "Pepper_bell_Bacterial_spot",
-    "description": "Bacterial spot on bell pepper leaves",
-    "treatment": "Apply copper-based fungicides. Remove infected plants."
+    "name": {
+      "en": "Pepper_bell_Bacterial_spot",
+      "fr": "Poivron Tache bactérienne",
+      "de": "Pfefferglocke Bakterienfleck"
+    },
+    "description": {
+      "en": "Bacterial spot on bell pepper leaves",
+      "fr": "Tache bactérienne sur les feuilles de poivron",
+      "de": "Bakterienfleck auf Paprikablättern"
+    },
+    "treatment": {
+      "en": "Apply copper-based fungicides. Remove infected plants.",
+      "fr": "Appliquez des fongicides à base de cuivre. Retirez les plantes infectées.",
+      "de": "Wenden Sie Fungizide auf Kupferbasis an. Befallene Pflanzen entfernen."
+    }
   },
   "1": {
-    "name": "Pepper_bell_healthy",
-    "description": "Healthy bell pepper plant",
-    "treatment": "Continue regular care."
+    "name": {
+      "en": "Pepper_bell_healthy",
+      "fr": "Poivron sain",
+      "de": "Pfefferglocke gesund"
+    },
+    "description": {
+      "en": "Healthy bell pepper plant",
+      "fr": "Plante de poivron saine",
+      "de": "Gesunde Paprikapflanze"
+    },
+    "treatment": {
+      "en": "Continue regular care.",
+      "fr": "Continuez les soins réguliers.",
+      "de": "Setzen Sie die regelmäßige Pflege fort."
+    }
   },
   "2": {
-    "name": "Potato_Early_blight",
-    "description": "Dark brown spots with concentric rings on potato leaves",
-    "treatment": "Apply chlorothalonil or mancozeb. Rotate crops."
+    "name": {
+      "en": "Potato_Early_blight",
+      "fr": "Mildiou hâtif de la pomme de terre",
+      "de": "Frühe Kartoffelfäule"
+    },
+    "description": {
+      "en": "Dark brown spots with concentric rings on potato leaves",
+      "fr": "Taches brun foncé avec anneaux concentriques sur les feuilles de pomme de terre",
+      "de": "Dunkelbraune Flecken mit konzentrischen Ringen auf Kartoffelblättern"
+    },
+    "treatment": {
+      "en": "Apply chlorothalonil or mancozeb. Rotate crops.",
+      "fr": "Appliquez du chlorothalonil ou du mancozèbe. Faites la rotation des cultures.",
+      "de": "Tragen Sie Chlorthalonil oder Mancozeb auf. Ernten wenden."
+    }
   },
   "3": {
-    "name": "Potato_Late_blight",
-    "description": "Water-soaked lesions expanding rapidly on potato",
-    "treatment": "Apply systemic fungicides immediately."
+    "name": {
+      "en": "Potato_Late_blight",
+      "fr": "Mildiou de la pomme de terre",
+      "de": "Krautfäule der Kartoffel"
+    },
+    "description": {
+      "en": "Water-soaked lesions expanding rapidly on potato",
+      "fr": "Lésions aqueuses s'étendant rapidement sur la pomme de terre",
+      "de": "Wassergetränkte Läsionen, die sich auf Kartoffeln schnell ausdehnen"
+    },
+    "treatment": {
+      "en": "Apply systemic fungicides immediately.",
+      "fr": "Appliquer immédiatement des fongicides systémiques.",
+      "de": "Wenden Sie sofort systemische Fungizide an."
+    }
   },
   "4": {
-    "name": "Potato_healthy",
-    "description": "Healthy potato plant",
-    "treatment": "Continue regular care."
+    "name": {
+      "en": "Potato_healthy",
+      "fr": "Pomme de terre saine",
+      "de": "Kartoffel gesund"
+    },
+    "description": {
+      "en": "Healthy potato plant",
+      "fr": "Plant de pomme de terre en bonne santé",
+      "de": "Gesunde Kartoffelpflanze"
+    },
+    "treatment": {
+      "en": "Continue regular care.",
+      "fr": "Continuez les soins réguliers.",
+      "de": "Setzen Sie die regelmäßige Pflege fort."
+    }
   },
   "5": {
-    "name": "Tomato_Bacterial_spot",
-    "description": "Small dark spots on tomato leaves and fruit",
-    "treatment": "Apply copper hydroxide. Use disease-free seeds."
+    "name": {
+      "en": "Tomato_Bacterial_spot",
+      "fr": "Tache bactérienne de la tomate",
+      "de": "Bakterienfleck auf der Tomate"
+    },
+    "description": {
+      "en": "Small dark spots on tomato leaves and fruit",
+      "fr": "Petites taches sombres sur les feuilles et les fruits des tomates",
+      "de": "Kleine dunkle Flecken auf Tomatenblättern und Früchten"
+    },
+    "treatment": {
+      "en": "Apply copper hydroxide. Use disease-free seeds.",
+      "fr": "Appliquez de l'hydroxyde de cuivre. Utilisez des graines exemptes de maladies.",
+      "de": "Tragen Sie Kupferhydroxid auf. Verwenden Sie krankheitsfreies Saatgut."
+    }
   },
   "6": {
-    "name": "Tomato_Early_blight",
-    "description": "Target-like spots on older tomato leaves",
-    "treatment": "Apply chlorothalonil. Remove infected leaves."
+    "name": {
+      "en": "Tomato_Early_blight",
+      "fr": "Mildiou hâtif de la tomate",
+      "de": "Frühe Knollenfäule der Tomate"
+    },
+    "description": {
+      "en": "Target-like spots on older tomato leaves",
+      "fr": "Taches ressemblant à des cibles sur les feuilles de tomates plus âgées",
+      "de": "Zielscheibenartige Flecken auf älteren Tomatenblättern"
+    },
+    "treatment": {
+      "en": "Apply chlorothalonil. Remove infected leaves.",
+      "fr": "Appliquez du chlorothalonil. Retirez les feuilles infectées.",
+      "de": "Tragen Sie Chlorothalonil auf. Befallene Blätter entfernen."
+    }
   },
   "7": {
-    "name": "Tomato_Late_blight",
-    "description": "Greasy dark lesions on tomato",
-    "treatment": "Apply systemic fungicide. Remove infected plants."
+    "name": {
+      "en": "Tomato_Late_blight",
+      "fr": "Tomate Mildiou",
+      "de": "Spätfäule der Tomate"
+    },
+    "description": {
+      "en": "Greasy dark lesions on tomato",
+      "fr": "Lésions grasses et foncées sur tomate",
+      "de": "Fettige, dunkle Flecken auf der Tomate"
+    },
+    "treatment": {
+      "en": "Apply systemic fungicide. Remove infected plants.",
+      "fr": "Appliquer un fongicide systémique. Retirez les plantes infectées.",
+      "de": "Tragen Sie ein systemisches Fungizid auf. Befallene Pflanzen entfernen."
+    }
   },
   "8": {
-    "name": "Tomato_Leaf_Mold",
-    "description": "Yellow spots with olive-green mold on tomato",
-    "treatment": "Improve ventilation. Reduce humidity."
+    "name": {
+      "en": "Tomato_Leaf_Mold",
+      "fr": "Moisissure des feuilles de tomate",
+      "de": "Tomatenblattform"
+    },
+    "description": {
+      "en": "Yellow spots with olive-green mold on tomato",
+      "fr": "Taches jaunes avec moisissure vert olive sur tomate",
+      "de": "Gelbe Flecken mit olivgrünem Schimmel auf der Tomate"
+    },
+    "treatment": {
+      "en": "Improve ventilation. Reduce humidity.",
+      "fr": "Améliorer la ventilation. Réduisez l’humidité.",
+      "de": "Belüftung verbessern. Luftfeuchtigkeit reduzieren."
+    }
   },
   "9": {
-    "name": "Tomato_Septoria_leaf_spot",
-    "description": "Circular spots with dark borders on tomato",
-    "treatment": "Apply copper fungicides. Remove lower leaves."
+    "name": {
+      "en": "Tomato_Septoria_leaf_spot",
+      "fr": "Tache septorienne de la tomate",
+      "de": "Blattfleckenkrankheit der Tomate Septoria"
+    },
+    "description": {
+      "en": "Circular spots with dark borders on tomato",
+      "fr": "Taches circulaires avec bordures sombres sur tomate",
+      "de": "Kreisförmige Flecken mit dunklen Rändern auf der Tomate"
+    },
+    "treatment": {
+      "en": "Apply copper fungicides. Remove lower leaves.",
+      "fr": "Appliquer des fongicides à base de cuivre. Retirez les feuilles inférieures.",
+      "de": "Tragen Sie Kupferfungizide auf. Untere Blätter entfernen."
+    }
   },
   "10": {
-    "name": "Tomato_Spider_mites",
-    "description": "Stippling and yellowing on tomato leaves",
-    "treatment": "Apply insecticidal soap or neem oil."
+    "name": {
+      "en": "Tomato_Spider_mites",
+      "fr": "Acariens de la tomate",
+      "de": "Tomatenspinnmilben"
+    },
+    "description": {
+      "en": "Stippling and yellowing on tomato leaves",
+      "fr": "Pointillés et jaunissement sur les feuilles de tomates",
+      "de": "Punktierung und Gelbfärbung auf Tomatenblättern"
+    },
+    "treatment": {
+      "en": "Apply insecticidal soap or neem oil.",
+      "fr": "Appliquez du savon insecticide ou de l'huile de neem.",
+      "de": "Tragen Sie insektizide Seife oder Neemöl auf."
+    }
   },
   "11": {
-    "name": "Tomato_Target_Spot",
-    "description": "Lesions with concentric rings on tomato",
-    "treatment": "Apply fungicides. Improve air circulation."
+    "name": {
+      "en": "Tomato_Target_Spot",
+      "fr": "Endroit cible de la tomate",
+      "de": "Tomaten-Zielpunkt"
+    },
+    "description": {
+      "en": "Lesions with concentric rings on tomato",
+      "fr": "Lésions à anneaux concentriques sur tomate",
+      "de": "Läsionen mit konzentrischen Ringen an der Tomate"
+    },
+    "treatment": {
+      "en": "Apply fungicides. Improve air circulation.",
+      "fr": "Appliquer des fongicides. Améliorer la circulation de l'air.",
+      "de": "Wenden Sie Fungizide an. Verbessern Sie die Luftzirkulation."
+    }
   },
   "12": {
-    "name": "Tomato_Yellow_Leaf_Curl_Virus",
-    "description": "Yellowing and curling of tomato leaves",
-    "treatment": "Control whitefly vectors. Use resistant varieties."
+    "name": {
+      "en": "Tomato_Yellow_Leaf_Curl_Virus",
+      "fr": "Virus de l'enroulement des feuilles jaunes de la tomate",
+      "de": "Tomaten-Yellow-Leaf-Curl-Virus"
+    },
+    "description": {
+      "en": "Yellowing and curling of tomato leaves",
+      "fr": "Jaunissement et enroulement des feuilles de tomates",
+      "de": "Gelbfärbung und Kräuselung der Tomatenblätter"
+    },
+    "treatment": {
+      "en": "Control whitefly vectors. Use resistant varieties.",
+      "fr": "Contrôlez les vecteurs de mouches blanches. Utilisez des variétés résistantes.",
+      "de": "Kontrollieren Sie die Vektoren der Weißen Fliege. Verwenden Sie resistente Sorten."
+    }
   },
   "13": {
-    "name": "Tomato_Mosaic_Virus",
-    "description": "Mottled light and dark green patterns on tomato",
-    "treatment": "Remove infected plants. Disinfect tools."
+    "name": {
+      "en": "Tomato_Mosaic_Virus",
+      "fr": "Virus de la mosaïque de la tomate",
+      "de": "Tomatenmosaikvirus"
+    },
+    "description": {
+      "en": "Mottled light and dark green patterns on tomato",
+      "fr": "Motifs marbrés vert clair et foncé sur tomate",
+      "de": "Gefleckte hell- und dunkelgrüne Muster auf der Tomate"
+    },
+    "treatment": {
+      "en": "Remove infected plants. Disinfect tools.",
+      "fr": "Retirez les plantes infectées. Désinfectez les outils.",
+      "de": "Befallene Pflanzen entfernen. Werkzeuge desinfizieren."
+    }
   },
   "14": {
-    "name": "Tomato_healthy",
-    "description": "Healthy tomato plant",
-    "treatment": "Continue regular care."
+    "name": {
+      "en": "Tomato_healthy",
+      "fr": "Tomate saine",
+      "de": "Tomate gesund"
+    },
+    "description": {
+      "en": "Healthy tomato plant",
+      "fr": "Plant de tomate sain",
+      "de": "Gesunde Tomatenpflanze"
+    },
+    "treatment": {
+      "en": "Continue regular care.",
+      "fr": "Continuez les soins réguliers.",
+      "de": "Setzen Sie die regelmäßige Pflege fort."
+    }
   },
   "15": {
-    "name": "Apple_scab",
-    "description": "Olive-green to brown spots on apple leaves",
-    "treatment": "Apply fungicides in spring. Rake fallen leaves."
+    "name": {
+      "en": "Apple_scab",
+      "fr": "Tavelure du pommier",
+      "de": "Apfelschorf"
+    },
+    "description": {
+      "en": "Olive-green to brown spots on apple leaves",
+      "fr": "Taches vert olive à brunes sur les feuilles de pommier",
+      "de": "Olivgrüne bis braune Flecken auf Apfelblättern"
+    },
+    "treatment": {
+      "en": "Apply fungicides in spring. Rake fallen leaves.",
+      "fr": "Appliquer des fongicides au printemps. Ratissez les feuilles mortes.",
+      "de": "Im Frühjahr Fungizide anwenden. Harken Sie abgefallene Blätter zusammen."
+    }
   },
   "16": {
-    "name": "Apple_Black_rot",
-    "description": "Brown lesions on apple leaves and fruit",
-    "treatment": "Prune dead wood. Apply fungicides during bloom."
+    "name": {
+      "en": "Apple_Black_rot",
+      "fr": "Pourriture noire du pommier",
+      "de": "Apfelschwarzfäule"
+    },
+    "description": {
+      "en": "Brown lesions on apple leaves and fruit",
+      "fr": "Lésions brunes sur les feuilles et les fruits du pommier",
+      "de": "Braune Flecken auf Apfelblättern und Früchten"
+    },
+    "treatment": {
+      "en": "Prune dead wood. Apply fungicides during bloom.",
+      "fr": "Taillez le bois mort. Appliquez des fongicides pendant la floraison.",
+      "de": "Totholz beschneiden. Während der Blüte Fungizide anwenden."
+    }
   },
   "17": {
-    "name": "Apple_Cedar_apple_rust",
-    "description": "Orange-yellow spots on apple leaves",
-    "treatment": "Remove nearby cedar trees. Apply fungicides."
+    "name": {
+      "en": "Apple_Cedar_apple_rust",
+      "fr": "Rouille du pommier cèdre",
+      "de": "Apfel-Zedern-Apfelrost"
+    },
+    "description": {
+      "en": "Orange-yellow spots on apple leaves",
+      "fr": "Taches jaune orangé sur les feuilles de pommier",
+      "de": "Orange-gelbe Flecken auf Apfelblättern"
+    },
+    "treatment": {
+      "en": "Remove nearby cedar trees. Apply fungicides.",
+      "fr": "Retirez les cèdres à proximité. Appliquer des fongicides.",
+      "de": "Entfernen Sie in der Nähe befindliche Zedernbäume. Wenden Sie Fungizide an."
+    }
   },
   "18": {
-    "name": "Apple_healthy",
-    "description": "Healthy apple tree",
-    "treatment": "Continue regular care."
+    "name": {
+      "en": "Apple_healthy",
+      "fr": "Pomme saine",
+      "de": "Apfel gesund"
+    },
+    "description": {
+      "en": "Healthy apple tree",
+      "fr": "Pommier en bonne santé",
+      "de": "Gesunder Apfelbaum"
+    },
+    "treatment": {
+      "en": "Continue regular care.",
+      "fr": "Continuez les soins réguliers.",
+      "de": "Setzen Sie die regelmäßige Pflege fort."
+    }
   },
   "19": {
-    "name": "Blueberry_healthy",
-    "description": "Healthy blueberry plant",
-    "treatment": "Continue regular care."
+    "name": {
+      "en": "Blueberry_healthy",
+      "fr": "Myrtille saine",
+      "de": "Heidelbeere gesund"
+    },
+    "description": {
+      "en": "Healthy blueberry plant",
+      "fr": "Plant de bleuet en bonne santé",
+      "de": "Gesunde Blaubeerpflanze"
+    },
+    "treatment": {
+      "en": "Continue regular care.",
+      "fr": "Continuez les soins réguliers.",
+      "de": "Setzen Sie die regelmäßige Pflege fort."
+    }
   },
   "20": {
-    "name": "Cherry_Powdery_mildew",
-    "description": "White powdery growth on cherry leaves",
-    "treatment": "Apply sulfur fungicides. Improve air circulation."
+    "name": {
+      "en": "Cherry_Powdery_mildew",
+      "fr": "Oïdium de la cerise",
+      "de": "Echter Mehltau der Kirsche"
+    },
+    "description": {
+      "en": "White powdery growth on cherry leaves",
+      "fr": "Croissance poudreuse blanche sur les feuilles de cerisier",
+      "de": "Weißes, pudriges Wachstum auf Kirschblättern"
+    },
+    "treatment": {
+      "en": "Apply sulfur fungicides. Improve air circulation.",
+      "fr": "Appliquer des fongicides soufrés. Améliorer la circulation de l'air.",
+      "de": "Tragen Sie Schwefelfungizide auf. Verbessern Sie die Luftzirkulation."
+    }
   },
   "21": {
-    "name": "Cherry_healthy",
-    "description": "Healthy cherry tree",
-    "treatment": "Continue regular care."
+    "name": {
+      "en": "Cherry_healthy",
+      "fr": "Cerise saine",
+      "de": "Kirsche gesund"
+    },
+    "description": {
+      "en": "Healthy cherry tree",
+      "fr": "Cerisier en bonne santé",
+      "de": "Gesunder Kirschbaum"
+    },
+    "treatment": {
+      "en": "Continue regular care.",
+      "fr": "Continuez les soins réguliers.",
+      "de": "Setzen Sie die regelmäßige Pflege fort."
+    }
   },
   "22": {
-    "name": "Corn_Cercospora_leaf_spot",
-    "description": "Rectangular tan to gray lesions on corn",
-    "treatment": "Apply foliar fungicides. Rotate crops."
+    "name": {
+      "en": "Corn_Cercospora_leaf_spot",
+      "fr": "Cercosporiose du maïs",
+      "de": "Mais-Cercospora-Blattfleckenkrankheit"
+    },
+    "description": {
+      "en": "Rectangular tan to gray lesions on corn",
+      "fr": "Lésions rectangulaires beiges à grises sur maïs",
+      "de": "Rechteckige bräunliche bis graue Läsionen am Hühnerauge"
+    },
+    "treatment": {
+      "en": "Apply foliar fungicides. Rotate crops.",
+      "fr": "Appliquer des fongicides foliaires. Faites la rotation des cultures.",
+      "de": "Blattfungizide anwenden. Ernten wenden."
+    }
   },
   "23": {
-    "name": "Corn_Common_rust",
-    "description": "Reddish-brown pustules on corn leaves",
-    "treatment": "Apply fungicides if severe. Plant resistant varieties."
+    "name": {
+      "en": "Corn_Common_rust",
+      "fr": "Maïs Rouille commune",
+      "de": "Mais Rost"
+    },
+    "description": {
+      "en": "Reddish-brown pustules on corn leaves",
+      "fr": "Pustules brun rougeâtre sur les feuilles de maïs",
+      "de": "Rötlich-braune Pusteln auf Maisblättern"
+    },
+    "treatment": {
+      "en": "Apply fungicides if severe. Plant resistant varieties.",
+      "fr": "Appliquer des fongicides en cas de gravité. Variétés végétales résistantes.",
+      "de": "Wenden Sie Fungizide an, wenn es schwerwiegend ist. Pflanzenresistente Sorten."
+    }
   },
   "24": {
-    "name": "Corn_Northern_Leaf_Blight",
-    "description": "Long elliptical gray-green lesions on corn",
-    "treatment": "Apply foliar fungicides. Use resistant hybrids."
+    "name": {
+      "en": "Corn_Northern_Leaf_Blight",
+      "fr": "Brûlure des feuilles du nord du maïs",
+      "de": "Mais-Nördliche Blattfäule"
+    },
+    "description": {
+      "en": "Long elliptical gray-green lesions on corn",
+      "fr": "Longues lésions elliptiques gris-vert sur maïs",
+      "de": "Lange elliptische graugrüne Läsionen am Mais"
+    },
+    "treatment": {
+      "en": "Apply foliar fungicides. Use resistant hybrids.",
+      "fr": "Appliquer des fongicides foliaires. Utilisez des hybrides résistants.",
+      "de": "Blattfungizide anwenden. Verwenden Sie resistente Hybriden."
+    }
   },
   "25": {
-    "name": "Corn_healthy",
-    "description": "Healthy corn plant",
-    "treatment": "Continue regular care."
+    "name": {
+      "en": "Corn_healthy",
+      "fr": "Maïs sain",
+      "de": "Mais gesund"
+    },
+    "description": {
+      "en": "Healthy corn plant",
+      "fr": "Plant de maïs sain",
+      "de": "Gesunde Maispflanze"
+    },
+    "treatment": {
+      "en": "Continue regular care.",
+      "fr": "Continuez les soins réguliers.",
+      "de": "Setzen Sie die regelmäßige Pflege fort."
+    }
   },
   "26": {
-    "name": "Grape_Black_rot",
-    "description": "Reddish-brown spots on grape leaves and fruit",
-    "treatment": "Apply fungicides before and after bloom."
+    "name": {
+      "en": "Grape_Black_rot",
+      "fr": "Pourriture noire du raisin",
+      "de": "Traubenschwarzfäule"
+    },
+    "description": {
+      "en": "Reddish-brown spots on grape leaves and fruit",
+      "fr": "Taches brun rougeâtre sur les feuilles et les fruits de la vigne",
+      "de": "Rotbraune Flecken auf Weinblättern und Früchten"
+    },
+    "treatment": {
+      "en": "Apply fungicides before and after bloom.",
+      "fr": "Appliquer des fongicides avant et après la floraison.",
+      "de": "Wenden Sie Fungizide vor und nach der Blüte an."
+    }
   },
   "27": {
-    "name": "Grape_Esca",
-    "description": "Tiger-stripe patterns on grape leaves",
-    "treatment": "Prune affected wood. Remove infected vines."
+    "name": {
+      "en": "Grape_Esca",
+      "fr": "Raisin Esca",
+      "de": "Trauben-Esca"
+    },
+    "description": {
+      "en": "Tiger-stripe patterns on grape leaves",
+      "fr": "Motifs à rayures tigrées sur les feuilles de vigne",
+      "de": "Tigerstreifenmuster auf Weinblättern"
+    },
+    "treatment": {
+      "en": "Prune affected wood. Remove infected vines.",
+      "fr": "Taillez le bois affecté. Retirez les vignes infectées.",
+      "de": "Befallenes Holz beschneiden. Befallene Reben entfernen."
+    }
   },
   "28": {
-    "name": "Grape_Leaf_blight",
-    "description": "Angular brown spots on grape leaves",
-    "treatment": "Apply fungicides. Improve canopy management."
+    "name": {
+      "en": "Grape_Leaf_blight",
+      "fr": "Brûlure de la vigne",
+      "de": "Weinblattfäule"
+    },
+    "description": {
+      "en": "Angular brown spots on grape leaves",
+      "fr": "Taches brunes angulaires sur les feuilles de vigne",
+      "de": "Eckige braune Flecken auf Weinblättern"
+    },
+    "treatment": {
+      "en": "Apply fungicides. Improve canopy management.",
+      "fr": "Appliquer des fongicides. Améliorer la gestion de la canopée.",
+      "de": "Wenden Sie Fungizide an. Verbessern Sie die Überdachungsverwaltung."
+    }
   },
   "29": {
-    "name": "Grape_healthy",
-    "description": "Healthy grape vine",
-    "treatment": "Continue regular care."
+    "name": {
+      "en": "Grape_healthy",
+      "fr": "Raisin sain",
+      "de": "Traube gesund"
+    },
+    "description": {
+      "en": "Healthy grape vine",
+      "fr": "Vigne saine",
+      "de": "Gesunde Weinrebe"
+    },
+    "treatment": {
+      "en": "Continue regular care.",
+      "fr": "Continuez les soins réguliers.",
+      "de": "Setzen Sie die regelmäßige Pflege fort."
+    }
   },
   "30": {
-    "name": "Orange_Haunglongbing",
-    "description": "Citrus greening causing blotchy mottling",
-    "treatment": "Control Asian citrus psyllid. Remove infected trees."
+    "name": {
+      "en": "Orange_Haunglongbing",
+      "fr": "Haunglongbing orange",
+      "de": "Orange Haunglongbing"
+    },
+    "description": {
+      "en": "Citrus greening causing blotchy mottling",
+      "fr": "Verdissement des agrumes provoquant des marbrures tachetées",
+      "de": "Zitrusfrüchte werden grün und verursachen fleckige Flecken"
+    },
+    "treatment": {
+      "en": "Control Asian citrus psyllid. Remove infected trees.",
+      "fr": "Contrôlez le psylle asiatique des agrumes. Retirez les arbres infectés.",
+      "de": "Bekämpfe asiatische Zitrusflohsamen. Befallene Bäume entfernen."
+    }
   },
   "31": {
-    "name": "Peach_Bacterial_spot",
-    "description": "Angular water-soaked spots on peach",
-    "treatment": "Apply copper-based products. Avoid overhead irrigation."
+    "name": {
+      "en": "Peach_Bacterial_spot",
+      "fr": "Pêche Tache bactérienne",
+      "de": "Pfirsichbakterieller Fleck"
+    },
+    "description": {
+      "en": "Angular water-soaked spots on peach",
+      "fr": "Taches angulaires gorgées d'eau sur pêche",
+      "de": "Eckige wassergetränkte Flecken auf Pfirsich"
+    },
+    "treatment": {
+      "en": "Apply copper-based products. Avoid overhead irrigation.",
+      "fr": "Appliquez des produits à base de cuivre. Évitez l’irrigation par aspersion.",
+      "de": "Tragen Sie Produkte auf Kupferbasis auf. Vermeiden Sie eine Überkopfbewässerung."
+    }
   },
   "32": {
-    "name": "Peach_healthy",
-    "description": "Healthy peach tree",
-    "treatment": "Continue regular care."
+    "name": {
+      "en": "Peach_healthy",
+      "fr": "Pêche saine",
+      "de": "Pfirsich gesund"
+    },
+    "description": {
+      "en": "Healthy peach tree",
+      "fr": "Pêcher en bonne santé",
+      "de": "Gesunder Pfirsichbaum"
+    },
+    "treatment": {
+      "en": "Continue regular care.",
+      "fr": "Continuez les soins réguliers.",
+      "de": "Setzen Sie die regelmäßige Pflege fort."
+    }
   },
   "33": {
-    "name": "Raspberry_healthy",
-    "description": "Healthy raspberry plant",
-    "treatment": "Continue regular care."
+    "name": {
+      "en": "Raspberry_healthy",
+      "fr": "Framboise saine",
+      "de": "Himbeere gesund"
+    },
+    "description": {
+      "en": "Healthy raspberry plant",
+      "fr": "Framboisier sain",
+      "de": "Gesunde Himbeerpflanze"
+    },
+    "treatment": {
+      "en": "Continue regular care.",
+      "fr": "Continuez les soins réguliers.",
+      "de": "Setzen Sie die regelmäßige Pflege fort."
+    }
   },
   "34": {
-    "name": "Soybean_healthy",
-    "description": "Healthy soybean plant",
-    "treatment": "Continue regular care."
+    "name": {
+      "en": "Soybean_healthy",
+      "fr": "Soja sain",
+      "de": "Sojabohnen gesund"
+    },
+    "description": {
+      "en": "Healthy soybean plant",
+      "fr": "Plante de soja saine",
+      "de": "Gesunde Sojapflanze"
+    },
+    "treatment": {
+      "en": "Continue regular care.",
+      "fr": "Continuez les soins réguliers.",
+      "de": "Setzen Sie die regelmäßige Pflege fort."
+    }
   },
   "35": {
-    "name": "Squash_Powdery_mildew",
-    "description": "White powdery spots on squash leaves",
-    "treatment": "Apply sulfur or neem oil. Improve air circulation."
+    "name": {
+      "en": "Squash_Powdery_mildew",
+      "fr": "Courge Oïdium",
+      "de": "Kürbis Echter Mehltau"
+    },
+    "description": {
+      "en": "White powdery spots on squash leaves",
+      "fr": "Taches poudreuses blanches sur les feuilles de courge",
+      "de": "Weiße, pudrige Flecken auf Kürbisblättern"
+    },
+    "treatment": {
+      "en": "Apply sulfur or neem oil. Improve air circulation.",
+      "fr": "Appliquez du soufre ou de l’huile de neem. Améliorer la circulation de l'air.",
+      "de": "Tragen Sie Schwefel- oder Neemöl auf. Verbessern Sie die Luftzirkulation."
+    }
   },
   "36": {
-    "name": "Strawberry_Leaf_scorch",
-    "description": "Red-brown spots on strawberry leaves",
-    "treatment": "Apply fungicides. Remove infected leaves."
+    "name": {
+      "en": "Strawberry_Leaf_scorch",
+      "fr": "Brûlure des feuilles de fraisier",
+      "de": "Erdbeerblatt verbrennt"
+    },
+    "description": {
+      "en": "Red-brown spots on strawberry leaves",
+      "fr": "Taches rouge-brun sur les feuilles de fraisier",
+      "de": "Rotbraune Flecken auf Erdbeerblättern"
+    },
+    "treatment": {
+      "en": "Apply fungicides. Remove infected leaves.",
+      "fr": "Appliquer des fongicides. Retirez les feuilles infectées.",
+      "de": "Wenden Sie Fungizide an. Befallene Blätter entfernen."
+    }
   },
   "37": {
-    "name": "Strawberry_healthy",
-    "description": "Healthy strawberry plant",
-    "treatment": "Continue regular care."
+    "name": {
+      "en": "Strawberry_healthy",
+      "fr": "Fraise saine",
+      "de": "Erdbeere gesund"
+    },
+    "description": {
+      "en": "Healthy strawberry plant",
+      "fr": "Fraisier sain",
+      "de": "Gesunde Erdbeerpflanze"
+    },
+    "treatment": {
+      "en": "Continue regular care.",
+      "fr": "Continuez les soins réguliers.",
+      "de": "Setzen Sie die regelmäßige Pflege fort."
+    }
   }
 }

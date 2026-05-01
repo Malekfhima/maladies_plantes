@@ -3,100 +3,88 @@
  * Allows users to switch between English, French, and German
  */
 
-import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import { View, StyleSheet, TouchableOpacity, Text, Animated } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { changeLanguage } from '../i18n/i18n';
+import theme from '../constants/theme';
 
-const LanguageSelector = () => {
+const LanguageSelector = ({ isDarkMode, currentTheme }) => {
   const { t, i18n } = useTranslation();
 
   const languages = [
-    { code: 'en', name: t('language.english'), flag: '🇬🇧' },
-    { code: 'fr', name: t('language.french'), flag: '🇫🇷' },
-    { code: 'de', name: t('language.german'), flag: '🇩🇪' },
+    { code: 'en', name: 'EN' },
+    { code: 'fr', name: 'FR' },
+    { code: 'de', name: 'DE' },
   ];
 
   const handleLanguageChange = async (langCode) => {
     await changeLanguage(langCode);
   };
 
+  const styles = getStyles(currentTheme, isDarkMode);
+
   return (
     <View style={styles.container}>
-      <View style={styles.languageButtons}>
-        {languages.map((lang) => (
-          <TouchableOpacity
-            key={lang.code}
-            style={[
-              styles.languageButton,
-              i18n.language === lang.code && styles.activeButton,
-            ]}
-            onPress={() => handleLanguageChange(lang.code)}
-          >
-            <Text style={styles.flag}>{lang.flag}</Text>
-            <Text
+      <View style={styles.segmentControl}>
+        {languages.map((lang, index) => {
+          const isActive = i18n.language === lang.code;
+          return (
+            <TouchableOpacity
+              key={lang.code}
               style={[
-                styles.languageText,
-                i18n.language === lang.code && styles.activeText,
+                styles.segmentButton,
+                isActive && styles.activeButton,
               ]}
+              onPress={() => handleLanguageChange(lang.code)}
+              activeOpacity={0.7}
             >
-              {lang.name}
-            </Text>
-          </TouchableOpacity>
-        ))}
+              <Text
+                style={[
+                  styles.languageText,
+                  isActive && styles.activeText,
+                ]}
+              >
+                {lang.name}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
       </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const getStyles = (currentTheme, isDarkMode) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 24,
-    paddingHorizontal: 20,
   },
-  languageButtons: {
+  segmentControl: {
     flexDirection: 'row',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 25,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: 24,
     padding: 4,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    gap: 4,
   },
-  languageButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  segmentButton: {
     paddingHorizontal: 16,
-    paddingVertical: 10,
+    paddingVertical: 8,
     borderRadius: 20,
-    backgroundColor: 'transparent',
-    gap: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   activeButton: {
-    backgroundColor: '#4CAF50',
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-  },
-  flag: {
-    fontSize: 18,
+    backgroundColor: '#FFFFFF',
+    ...theme.SHADOWS.light,
   },
   languageText: {
-    fontSize: 13,
-    color: '#666666',
-    fontWeight: '500',
+    ...theme.FONTS.body3,
+    fontWeight: '600',
+    color: 'rgba(255, 255, 255, 0.8)',
   },
   activeText: {
-    color: '#FFFFFF',
-    fontWeight: '600',
+    color: theme.COLORS.light.primary,
+    fontWeight: 'bold',
   },
 });
 

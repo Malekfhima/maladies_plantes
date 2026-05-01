@@ -26,6 +26,7 @@
     "cameraError": "Failed to open camera. Please try again.",
     "galleryError": "Failed to open gallery. Please try again.",
     "predictionError": "Failed to analyze image. Please try again.",
+    "noConnection": "No internet connection. Please check your network and try again.",
     "noImage": "No image file provided",
     "noFile": "No file selected",
     "serverError": "No response from server. Check your connection."

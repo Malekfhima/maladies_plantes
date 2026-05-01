@@ -26,6 +26,7 @@
     "cameraError": "Échec de l'ouverture de la caméra. Veuillez réessayer.",
     "galleryError": "Échec de l'ouverture de la galerie. Veuillez réessayer.",
     "predictionError": "Échec de l'analyse de l'image. Veuillez réessayer.",
+    "noConnection": "Pas de connexion internet. Veuillez vérifier votre réseau et réessayer.",
     "noImage": "Aucun fichier image fourni",
     "noFile": "Aucun fichier sélectionné",
     "serverError": "Pas de réponse du serveur. Vérifiez votre connexion."
