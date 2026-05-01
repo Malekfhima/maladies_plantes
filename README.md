@@ -7,8 +7,10 @@ A complete smart agriculture mobile application that detects plant diseases usin
 - **Camera Integration**: Capture plant images directly from your phone camera
 - **Gallery Selection**: Upload images from your photo gallery
 - **AI-Powered Detection**: Uses a trained CNN model to identify plant diseases
+- **Smart "Healthy" Detection**: Automatically detects healthy plants and adapts the UI accordingly (hiding treatment steps).
+- **Multi-language Support**: Full UI and prediction results available in English, French, and German.
 - **Detailed Results**: Displays disease name, confidence percentage, description, and treatment recommendations
-- **Modern UI**: Clean, intuitive interface with loading indicators and error handling
+- **Premium Modern UI**: Clean, intuitive interface with glassmorphism effects, dynamic progress bars, and full Dark/Light Mode support.
 - **Cross-Platform**: Built with React Native (Expo) for iOS and Android
 
 ## 🏗️ Project Structure
@@ -164,13 +166,15 @@ Get all available disease classes.
 
 ### Features
 
+- Interactive language selector (English, French, German)
 - Camera permission handling
 - Gallery permission handling
 - Image preview
 - Loading indicators during prediction
 - Error handling with user-friendly messages
-- Modern card-based result display
-- Responsive design
+- Modern card-based result display with dynamic icons and progress bars
+- Smart healthy plant logic (green UI, no treatments displayed)
+- Premium responsive design with light and dark mode
 
 ## 🚀 Setup Instructions
 
@@ -506,12 +510,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 For questions or support, please open an issue on GitHub.
 
-## 🙏 Acknowledgments
-
-- PlantVillage dataset for the training images
-- TensorFlow/Keras for the deep learning framework
-- React Native/Expo for the mobile framework
-- Flask for the backend API
 ## 🙏 Acknowledgments
 
 - PlantVillage dataset for the training images
