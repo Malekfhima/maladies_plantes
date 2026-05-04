@@ -5,7 +5,7 @@
 // API Configuration
 export const API_CONFIG = {
   BASE_URL: __DEV__
-    ? 'http://192.168.100.55:5000' // Backend server IP for local testing
+    ? 'http://192.168.1.191:5000' // Backend server IP for local testing
     : 'https://your-production-api.com',
   TIMEOUT: 30000, // 30 seconds
 };
